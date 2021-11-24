@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  sqlServer:
+    image: 'mcr.microsoft.com/mssql/server:2019-CU13-ubuntu-20.04'
+    ports: 
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "yourStrongP@ssword"
+      MSSQL_PID: "Developer"
+      ACCEPT_EULA: "Y"
+  rabbitmq:
+    image: 'rabbitmq:3.9.7-management-alpine'
+    hostname: localhost-rabbit
+    ports:
+      - '15672:15672'
+      - '5672:5672'

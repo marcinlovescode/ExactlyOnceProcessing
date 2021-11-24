@@ -1,0 +1,58 @@
+### Happy path
+
+POST https://localhost:5001/orders HTTP/1.1
+Content-Type: application/json
+
+{
+    "Id": "f8723a22-7041-4e87-ae14-15c06cfa0de9",
+    "ClientId": "4e88f8e1-9c7d-4e70-bb48-acc502c96025",
+    "TotalValue": 143.99
+}
+
+### Failing path
+
+POST https://localhost:5001/failingOrders HTTP/1.1
+Content-Type: application/json
+
+{
+    "Id": "69f25b8f-46f9-48fc-9dda-6debe85b8eb8",
+    "ClientId": "4e88f8e1-9c7d-4e70-bb48-acc502c96025",
+    "TotalValue": 876.54
+}
+
+### Failing path 2
+
+POST https://localhost:5001/failingOrders HTTP/1.1
+Content-Type: application/json
+
+{
+    "Id": "f7ceb858-d400-4602-a1f9-b5fc16bc282c",
+    "ClientId": "14a92c5e-4cb1-4564-ad37-22a7cc8c1a1e",
+    "TotalValue": 567.98
+}
+
+### Get valid order
+
+GET https://localhost:5001/orders/f8723a22-7041-4e87-ae14-15c06cfa0de9 HTTP/1.1
+Content-Type: application/json
+
+
+### Get invalid order
+
+GET https://localhost:5001/orders/69f25b8f-46f9-48fc-9dda-6debe85b8eb8 HTTP/1.1
+Content-Type: application/json
+
+### Get invalid order2
+
+GET https://localhost:5001/orders/f7ceb858-d400-4602-a1f9-b5fc16bc282c HTTP/1.1
+Content-Type: application/json
+
+### Get payments by clientid order
+
+GET https://localhost:5001/client/4e88f8e1-9c7d-4e70-bb48-acc502c96025/payments HTTP/1.1
+Content-Type: application/json
+
+### Get payments by clientid order 2
+
+GET https://localhost:5001/client/14a92c5e-4cb1-4564-ad37-22a7cc8c1a1e/payments HTTP/1.1
+Content-Type: application/json
